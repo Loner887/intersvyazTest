@@ -1,0 +1,6 @@
+framework module Pods_intersvyazTest {
+  umbrella header "Pods-intersvyazTest-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,19 +1,23 @@
-//
-//  AppDelegate.swift
-//  intersvyazTest
-//
-//  Created by Михаил Бычков on 04.08.2024.
-//
-
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+        let coordinator = AppCoordinator(navigationController: navigationController)
+        let viewModel = GalleryViewModel(coordinator: coordinator)
+        let galleryVC = GalleryViewController(viewModel: viewModel)
+        let navController = UINavigationController(rootViewController: galleryVC)
+        window.rootViewController = navController
+        self.window = window
+        window.makeKeyAndVisible()
+        
         return true
     }
 
